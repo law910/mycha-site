@@ -80,9 +80,9 @@
     .cat-mascot {
       position: absolute;
       right: 32px;
-      top: 32px;
+      bottom: 32px;
       max-height: 25%;
-      padding-top: 10px;
+      padding-bottom: 10px;
       padding-right: 10px;
       opacity: 0.95;
       z-index: 1;
@@ -98,7 +98,7 @@
     }
     .image-text-section img {
       width: auto;
-      max-width: 100%;
+      max-width: 60%;
       height: auto;
       object-fit: contain;
       transition: transform 0.6s ease-out;
@@ -107,6 +107,9 @@
     }
     .image-text-content {
       padding: 0 96px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .image-text-content h2 {
       font-family: 'Outfit', sans-serif;
@@ -115,7 +118,7 @@
       margin-bottom: 18px;
       letter-spacing: normal;
     }
-    .image-text-content p { font-size: 14px; }
+    .image-text-content p { font-size: 14px; margin-bottom: 12px; }
 
     /* ICONS */
     .icons { padding: 88px 0 56px; }
@@ -193,13 +196,19 @@
     }
     .news img {
       width: auto;
-      max-width: 100%;
+      max-width: 75%;
       height: auto;
       object-fit: contain;
       display: block;
       margin: 0 auto;
     }
-    .news-text { padding: 0 0; text-align: left; }
+    .news-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+      padding: 0 48px;
+    }
     .news-text p { font-size: 14px; margin: 6px 0; }
 
     footer {
@@ -218,6 +227,7 @@
       .cat-mascot { display: none; }
       .range-grid { padding: 0 32px; }
       .hero h1 { line-height: 1.2; }
+      .news img { max-width: 100%; }
     }
   </style>
 </head>
@@ -303,7 +313,7 @@
         <p><strong>Urban Garden Fair — Lunar New Year</strong></p>
         <p>February 7 &amp; 8 — Woolrich, London</p>
         <p>Ajinomoto × Starry Mart stand</p>
-        <p>More details coming soon</p>
+        <p>More details coming soon.</p>
       </div>
     </div>
   </section>
@@ -337,3 +347,4 @@
 
 </body>
 </html>
+
