@@ -52,10 +52,11 @@
     .hero-inner { width: 100%; position: relative; z-index: 2; }
     .hero h1 {
       font-family: 'Outfit', sans-serif;
-      font-size: clamp(60px, 6vw, 88px);
+      font-size: clamp(50px, 6vw, 88px);
       font-weight: 600;
       letter-spacing: -0.01em;
       margin-bottom: 20px;
+      line-height: 1.1;
     }
     .hero p {
       font-size: 15px;
@@ -96,10 +97,16 @@
       padding: 96px 0;
     }
     .image-text-section img {
-      width: 100%;
-      max-height: 520px;
-      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
       transition: transform 0.6s ease-out;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-text-content {
+      padding: 0 96px;
     }
     .image-text-content h2 {
       font-family: 'Outfit', sans-serif;
@@ -121,7 +128,7 @@
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease-out;
-      letter-spacing: normal;
+      letter-spacing: 1px;
     }
     .icon-row.visible { opacity: 1; transform: translateY(0); }
     .icon-item {
@@ -163,6 +170,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
       gap: 48px;
+      padding: 0 24px;
     }
     .range-item h3 { font-size: 13px; letter-spacing: .14em; margin-bottom: 8px; text-transform: uppercase; }
     .range-item p { font-size: 14px; color: var(--text-muted); }
@@ -181,14 +189,17 @@
       align-items: center;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 96px;
     }
     .news img {
-      width: 100%;
-      max-height: 390px;
-      object-fit: cover;
-      border-radius: 0;
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
     }
+    .news-text { padding: 0 0; text-align: left; }
     .news-text p { font-size: 14px; margin: 6px 0; }
 
     footer {
@@ -201,9 +212,12 @@
 
     @media (max-width: 768px) {
       .image-text-section, .news-container { grid-template-columns: 1fr; gap: 32px; }
+      .image-text-content, .news-text { padding: 0 48px; }
       .icon-row { grid-template-columns: repeat(2, 1fr); }
       .icon-item img { width: 35px; height: 35px; }
       .cat-mascot { display: none; }
+      .range-grid { padding: 0 32px; }
+      .hero h1 { line-height: 1.2; }
     }
   </style>
 </head>
@@ -212,7 +226,7 @@
 <header>
   <div class="container">
     <div class="logo">
-      <img src="image/mychalogo.png" alt="MYCHA logo">
+      <img src="images/mychalogo.png" alt="MYCHA logo">
     </div>
   </div>
 </header>
@@ -220,7 +234,7 @@
 <main>
 
   <section class="hero">
-    <img src="image/catmascot@5x.png" alt="MYCHA cat mascot" class="cat-mascot">
+    <img src="images/catmascot@5x.png" alt="MYCHA cat mascot" class="cat-mascot">
     <div class="container hero-inner">
       <h1>Your new drink companion.</h1>
       <p>MYCHA is a contemporary grab-and-go beverage brand specialising in Japanese tea lattes, made with 100% Japanese teas and 100% plant-based oat drink.</p>
@@ -244,19 +258,19 @@
     <div class="container">
       <div class="icon-row" id="icon-row">
         <div class="icon-item">
-          <img src="image/energy.png" alt="Natural source of energy">
+          <img src="images/energy.png" alt="Natural source of energy">
           <span>NATURAL SOURCE OF ENERGY</span>
         </div>
         <div class="icon-item">
-          <img src="image/plant.png" alt="Plant based">
+          <img src="images/plant.png" alt="Plant based">
           <span>PLANT BASED</span>
         </div>
         <div class="icon-item">
-          <img src="image/london.png" alt="Made in London">
+          <img src="images/london.png" alt="Made in London">
           <span>MADE IN LONDON</span>
         </div>
         <div class="icon-item">
-          <img src="image/japan.png" alt="100% Japanese tea">
+          <img src="images/japan.png" alt="100% Japanese tea">
           <span>100% JAPANESE TEA</span>
         </div>
       </div>
@@ -282,14 +296,14 @@
   <section class="news">
     <div class="news-container">
       <div>
-        <img src="images/news-placeholder.jpg" alt="Urban Garden Fair">
+        <img src="images/LNYfair.png" alt="Urban Garden Fair">
       </div>
       <div class="news-text">
         <h2>Latest news</h2>
         <p><strong>Urban Garden Fair — Lunar New Year</strong></p>
         <p>February 7 &amp; 8 — Woolrich, London</p>
         <p>Ajinomoto × Starry Mart stand</p>
-        <p>More details coming soon.</p>
+        <p>More details coming soon</p>
       </div>
     </div>
   </section>
