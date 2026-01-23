@@ -34,7 +34,22 @@
     a { text-decoration: none; color: inherit; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    header { position: absolute; inset: 0 0 auto 0; padding: 32px 0; z-index: 10; }
+    header { position: fixed; inset: 0 0 auto 0; padding: 24px 0; z-index: 10; background: transparent; }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(250,250,250,0.75);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    body.scrolled header::after {
+      opacity: 1;
+    }
     .logo img { height: 38px; }
 
     /* HERO */
@@ -47,15 +62,15 @@
       align-items: center;
       text-align: center;
       overflow: hidden;
-      padding: 64px 0;
+      padding: 64px 0 96px 0;
     }
-    .hero-inner { width: 100%; position: relative; z-index: 2; }
+    .hero-inner { width: 100%; position: relative; z-index: 2; padding-top: 48px; }
     .hero h1 {
       font-family: 'Outfit', sans-serif;
       font-size: clamp(50px, 6vw, 88px);
       font-weight: 600;
       letter-spacing: -0.01em;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
       line-height: 1.1;
     }
     .hero p {
@@ -67,7 +82,7 @@
 
     .cta {
       display: inline-block;
-      padding: 5px 16px;
+      padding: 7px 20px;
       background: #fff;
       color: var(--green);
       font-size: 10px;
@@ -97,10 +112,11 @@
       padding: 96px 0;
     }
     .image-text-section img {
-      width: auto;
-      max-width: 60%;
+      width: 100%;
+      max-width: calc(60% + 3cm);
       height: auto;
-      object-fit: contain;
+      max-height: 420px;
+      object-fit: cover;
       transition: transform 0.6s ease-out;
       display: block;
       margin: 0 auto;
@@ -121,7 +137,7 @@
     .image-text-content p { font-size: 14px; margin-bottom: 12px; }
 
     /* ICONS */
-    .icons { padding: 88px 0 56px; }
+    .icons { padding: 88px 0 56px; background: #ffffff; }
     .icon-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -181,7 +197,7 @@
     /* NEWS */
     .news {
       background: var(--news-bg);
-      padding: 32px 0; /* Reduced padding */
+      padding: 32px 0;
       width: 100vw;
       margin-left: calc(50% - 50vw);
     }
@@ -192,7 +208,7 @@
       align-items: center;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 48px; /* Reduced padding */
+      padding: 0 48px;
     }
     .news img {
       width: auto;
@@ -206,17 +222,17 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      text-align: left;
-      padding: 0 24px; /* Reduced padding */
+      text-align: center; /* centered text */
+      padding: 0 24px;
     }
-    .news-text p { font-size: 14px; margin: 6px 0; }
+    .news-text p { font-size: 14px; margin: 4px 0; }
 
     footer {
       padding: 40px 0;
       text-align: center;
       font-size: 12px;
       color: var(--text-muted);
-      line-height: 1;
+      line-height: 1.5;
     }
 
     @media (max-width: 768px) {
@@ -250,7 +266,7 @@
     <div class="container hero-inner">
       <h1>Your new drink companion.</h1>
       <p><b>mycha</b> is a contemporary grab-and-go beverage brand specialising in Japanese tea lattes, made with 100% Japanese teas and plant-based oat drink.</p>
-      <p>A new standard for premium, ready-to-drink teas.</p>
+      <p>A new standard for premium, ready-to-drink (RTD) teas.</p>
       <a href="mailto:hello@mycha.co.uk" class="cta">BECOME A STOCKIST</a>
     </div>
   </section>
@@ -313,10 +329,7 @@
       <div class="news-text">
         <h2>Latest news</h2>
         <p><strong>Urban Garden Fair</strong></p>
-        <br>February 7 to 8</br>
-        <br>Woolrich, London</br>
-        <br>Ajinomoto × Starry Mart stand</br>
-        <br>More details coming soon.</br>
+        <p>February 7 to 8<br>Woolrich, London<br>Ajinomoto × Starry Mart stand<br>More details coming soon.</p>
       </div>
     </div>
   </section>
@@ -325,13 +338,15 @@
 
 <footer>
   <div class="container">
-    © MYCHA<br>
+    © 2026 mycha<br>
     For partnerships, events and enquiries, contact: <a href="mailto:hello@mycha.co.uk">hello@mycha.co.uk</a>
   </div>
 </footer>
 
 <script>
   window.addEventListener('scroll', () => {
+    document.body.classList.toggle('scrolled', window.scrollY > 40);
+
     const img = document.querySelector('.image-text-section img');
     if (img) {
       const offset = Math.min(40, Math.max(-40, img.getBoundingClientRect().top * 0.08));
@@ -351,6 +366,4 @@
 </body>
 </html>
 
-</body>
-</html>
 
