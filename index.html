@@ -1,248 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MYCHA — Modern Matcha & Hojicha</title>
-  <meta name="description" content="MYCHA — ready-to-drink matcha & hojicha lattes made with 100% Japanese tea and plant-based oat drink." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MYCHA — Modern Matcha & Hojicha</title>
+<meta name="description" content="MYCHA — ready-to-drink matcha & hojicha lattes made with 100% Japanese tea and plant-based oat drink." />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --green: #516639;
-      --bg: #fafafa;
-      --text-dark: #1a1a1a;
-      --text-muted: #6b6b6b;
-      --range-bg: #f4e9dc;
-      --news-bg: #f3f3f3;
-    }
+<style>
+:root {
+  --green: #516639;
+  --bg: #fafafa;
+  --text-dark: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --range-bg: #f4e9dc;
+  --soft-grey: #f6f6f6;
+}
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg);
-      line-height: 1.6;
-      font-size: 15px;
-    }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text-dark); font-size: 15px; line-height: 1.6; }
+a { text-decoration: none; color: inherit; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
-    a { text-decoration: none; color: inherit; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+/* HERO */
+.hero { position: relative; min-height: 52vh; background: var(--green); color: #fff; display: flex; align-items: center; text-align: center; overflow: hidden; padding: 64px 0 96px 0; }
+.hero-inner { width: 100%; position: relative; z-index: 2; padding-top: 80px; }
+.hero h1 { font-family: 'Outfit', sans-serif; font-size: clamp(50px, 6vw, 88px); font-weight: 600; letter-spacing: -0.01em; margin-bottom: 40px; line-height: 1.1; }
+.hero p { font-size: 15px; max-width: 560px; margin: 0 auto 18px; }
+.hero p:last-of-type { margin-bottom: 36px; }
+.cta { display: inline-block; padding: 7px 30px; background: #fff; color: var(--green); font-size: 10px; font-weight: 500; border-radius: 3px; letter-spacing: .14em; text-transform: uppercase; }
+.cat-mascot { position: absolute; right: 32px; bottom: 32px; max-height: 25%; padding-bottom: 10px; padding-right: 10px; opacity: 0.95; z-index: 1; }
 
-    header { position: fixed; inset: 0 0 auto 0; padding: 16px 0; z-index: 10; background: transparent; }
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(250,250,250,0.75);
-      backdrop-filter: blur(6px);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-    body.scrolled header::after { opacity: 1; }
-    .logo img { height: 38px; }
+/* ICONS */
+.icons { padding: 88px 0 56px; background: #ffffff; }
+.icon-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: center; align-items: start; letter-spacing: 1px; }
+.icon-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); }
+.icon-item img { width: 45px; height: 45px; max-width: 45px; max-height: 45px; margin-bottom: 10px; }
+.icon-item span { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; }
 
-    /* HERO */
-    .hero {
-      position: relative;
-      min-height: 52vh;
-      background: var(--green);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      overflow: hidden;
-      padding: 64px 0 96px 0;
-    }
-    .hero-inner { width: 100%; position: relative; z-index: 2; padding-top: 80px; }
-    .hero h1 {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(50px, 6vw, 88px);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 40px;
-      line-height: 1.1;
-    }
-    .hero p {
-      font-size: 15px;
-      max-width: 560px;
-      margin: 0 auto 18px;
-    }
-    .hero p:last-of-type { margin-bottom: 36px; }
+/* RANGE */
+.range { background-color: var(--range-bg); padding: 28px 0; text-align: center; width: 100vw; margin-left: calc(50% - 50vw); }
+.range-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; padding: 0 24px; }
+.range-item h3 { font-size: 13px; letter-spacing: .14em; margin-bottom: 8px; text-transform: uppercase; }
+.range-item p { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
+.range-item img { width: 100%; max-width: 100%; height: auto; margin-top: 12px; }
 
-    .cta {
-      display: inline-block;
-      padding: 7px 30px;
-      background: #fff;
-      color: var(--green);
-      font-size: 10px;
-      font-weight: 500;
-      border-radius: 3px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-    }
+/* STOCKISTS */
+.stockists { padding: 80px 0; background: #ffffff; text-align: center; }
+.accordion button { width: 100%; text-align: left; background: #fff; border: none; outline: none; cursor: pointer; padding: 16px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 16px; border-bottom: 1px solid #e2e2e2; transition: background 0.3s ease; }
+.accordion button:hover { background: #f4f4f4; }
+.accordion button.active { background: #f4f4f4; }
+.panel { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.panel .stockist-grid { margin-top: 12px; }
+.stockist-card { background: #fff; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); transition: transform .2s ease, box-shadow .2s ease; margin-bottom: 12px; }
+.stockist-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.stockist-card h4 { font-size: 15px; margin: 0 0 6px; font-weight: 600; }
+.stockist-card p { font-size: 14px; margin: 0 0 8px; color: var(--text-muted); }
+.stockist-card a { font-size: 13px; font-weight: 500; color: var(--green); text-decoration: underline; }
 
-    .cat-mascot {
-      position: absolute;
-      right: 32px;
-      bottom: 32px;
-      max-height: 25%;
-      padding-bottom: 10px;
-      padding-right: 10px;
-      opacity: 0.95;
-      z-index: 1;
-    }
+/* SHOP ONLINE */
+.shop-online { background: var(--soft-grey); padding: 80px 0; text-align: center; }
+.online-grid { display: grid; gap: 32px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 700px; margin: 0 auto; }
+.online-card { background: #ffffff; border-radius: 12px; padding: 50px 20px; display: flex; align-items: center; justify-content: center; transition: transform .2s ease, box-shadow .2s ease; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.online-card:hover { transform: translateY(-4px); box-shadow: 0 8px 22px rgba(0,0,0,0.08); }
+.online-card img { width: 40%; max-width: 180px; height: auto; display: block; }
 
-    /* IMAGE + TEXT */
-    .image-text-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      align-items: center;
-      padding: 96px 0;
-    }
-    .image-text-section img {
-      width: 100%;
-      max-width: 68%;
-      height: auto;
-      max-height: 440px;
-      object-fit: cover;
-      transition: transform 0.6s ease-out;
-      display: block;
-      margin: 0 auto;
-      padding-top: 0.5cm;
-      padding-bottom: 0.5cm;
-    }
-    .image-text-content { padding: 0 48px; display: flex; flex-direction: column; justify-content: center; }
-    .image-text-content h2 {
-      font-family: 'Outfit', sans-serif;
-      font-size: clamp(30px, 4vw, 40px);
-      font-weight: 600;
-      margin-bottom: 18px;
-      letter-spacing: normal;
-    }
-    .image-text-content p { font-size: 14px; margin-bottom: 12px; }
+/* EVENTS */
+.news { background: var(--news-bg); padding: 32px 0; width: 100vw; margin-left: calc(50% - 50vw); text-align: center; }
+.news-text p { font-size: 14px; margin: 4px 0; }
 
-    /* ICONS */
-    .icons { padding: 88px 0 56px; background: #ffffff; }
-    .icon-row {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      text-align: center;
-      align-items: start;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease-out;
-      letter-spacing: 1px;
-    }
-    .icon-row.visible { opacity: 1; transform: translateY(0); }
-    .icon-item { display: flex; flex-direction: column; align-items: center; color: var(--text-muted); }
-    .icon-item img { width: 45px; height: 45px; max-width: 45px; max-height: 45px; margin-bottom: 10px; }
-    .icon-item span { font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; text-transform: uppercase; }
+/* FOOTER */
+footer { padding: 40px 0; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+.footer-container { display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto; }
+.footer-left { padding-left: 1cm; text-align: left; }
+.footer-right { padding-right: 1cm; text-align: right; }
 
-    /* RANGE */
-    .range { background-color: var(--range-bg); padding: 28px 0; text-align: center; width: 100vw; margin-left: calc(50% - 50vw); }
-    .range h2, .news h2, .find-us h2 { font-family: 'Outfit', sans-serif; font-size: clamp(30px, 4vw, 40px); font-weight: 600; letter-spacing: normal; margin-bottom: 28px; }
-    .range-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 48px; padding: 0 24px; }
-    .range-item h3 { font-size: 13px; letter-spacing: .14em; margin-bottom: 8px; text-transform: uppercase; }
-    .range-item p { font-size: 14px; color: var(--text-muted); }
-
-    /* FIND US */
-    .find-us { background: #ffffff; padding: 48px 0; text-align: center; width: 100vw; margin-left: calc(50% - 50vw); }
-    .find-us p { font-size: 14px; color: var(--text-muted); }
-
-    /* NEWS */
-    .news { background: var(--news-bg); padding: 32px 0; width: 100vw; margin-left: calc(50% - 50vw); }
-    .news-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 48px; }
-    .news img { width: auto; max-width: 75%; height: auto; object-fit: contain; display: block; margin: 0 auto; }
-    .news-text { display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 0 24px; }
-    .news-text p { font-size: 14px; margin: 4px 0; }
-
-    /* FOOTER */
-    footer { padding: 40px 0; font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-    .footer-container { display: grid; grid-template-columns: 1fr 1fr; max-width: 1100px; margin: 0 auto; }
-    .footer-left { padding-left: 1cm; text-align: left; }
-    .footer-right { padding-right: 1cm; text-align: right; }
-
-    @media (max-width: 768px) {
-      .image-text-section, .news-container { grid-template-columns: 1fr; gap: 32px; }
-      .image-text-content, .news-text { padding: 0 24px; }
-      .icon-row { grid-template-columns: repeat(2, 1fr); }
-      .icon-item img { width: 35px; height: 35px; }
-      .cat-mascot { display: none; }
-      .range-grid { padding: 0 16px; }
-      .hero h1 { line-height: 1.2; }
-      .news img { max-width: 100%; }
-      .news-text { padding: 0 16px; }
-      .image-text-content { padding: 0 16px; }
-      .footer-container { grid-template-columns: 1fr; text-align: center; }
-      .footer-left, .footer-right { padding: 0; text-align: center; margin-bottom: 8px; }
-    }
-  </style>
+@media (max-width: 768px) {
+  .icon-row { grid-template-columns: repeat(2, 1fr); }
+  .icon-item img { width: 35px; height: 35px; }
+  .cat-mascot { display: none; }
+  .range-grid { padding: 0 16px; }
+  .accordion button { font-size: 14px; padding: 12px; }
+  .footer-container { grid-template-columns: 1fr; text-align: center; }
+  .footer-left, .footer-right { padding: 0; text-align: center; margin-bottom: 8px; }
+}
+</style>
 </head>
 <body>
 
 <header>
   <div class="container">
-    <div class="logo">
-      <img src="images/mychalogo.png" alt="MYCHA logo">
-    </div>
+    <div class="logo"><img src="images/mychalogo.png" alt="MYCHA logo"></div>
   </div>
 </header>
 
 <main>
-
+  <!-- HERO -->
   <section class="hero">
     <img src="images/catmascot@5x.png" alt="MYCHA cat mascot" class="cat-mascot">
     <div class="container hero-inner">
       <h1>Your new drink companion.</h1>
-      <p><b>mycha</b> is a contemporary grab-and-go beverage brand specialising in Japanese tea lattes, made with 100% Japanese teas and plant-based oat drink.</p>
-      <p>A new standard for premium, ready-to-drink (RTD) teas.</p>
-      <a href="mailto:hello@mycha.co.uk" class="cta">BECOME A STOCKIST</a>
+      <p><b>MYCHA</b> is a contemporary grab-and-go beverage brand specialising in Japanese tea lattes, made with 100% Japanese teas and plant-based oat drink.</p>
+      <a href="#stockists" class="cta">Find us in store</a>
     </div>
   </section>
 
-  <section class="image-text-section">
-    <div class="image-text-content">
-      <h2>Cafe quality, ready to go</h2>
-      <p>Our lattes deliver the richness and quality of a freshly prepared café-style drink, bottled using a proprietary method that preserves delicate flavour profiles.</p>
-      <p>Handcrafted in London. Available through selected grocers and delis.</p>
-    </div>
-    <div>
-      <img src="images/GROUP.jpg" alt="MYCHA bottled tea">
-    </div>
-  </section>
-
+  <!-- ICONS -->
   <section class="icons">
     <div class="container">
-      <div class="icon-row" id="icon-row">
-        <div class="icon-item">
-          <img src="images/energy.png" alt="Natural source of energy">
-          <span>NATURAL SOURCE OF ENERGY</span>
-        </div>
-        <div class="icon-item">
-          <img src="images/plant.png" alt="Plant based">
-          <span>PLANT BASED</span>
-        </div>
-        <div class="icon-item">
-          <img src="images/london.png" alt="Made in London">
-          <span>MADE IN LONDON</span>
-        </div>
-        <div class="icon-item">
-          <img src="images/japan.png" alt="100% Japanese tea">
-          <span>100% JAPANESE TEA</span>
-        </div>
+      <div class="icon-row">
+        <div class="icon-item"><img src="images/energy.png" alt="Natural source of energy"><span>NATURAL SOURCE OF ENERGY</span></div>
+        <div class="icon-item"><img src="images/plant.png" alt="Plant based"><span>PLANT BASED</span></div>
+        <div class="icon-item"><img src="images/london.png" alt="Made in London"><span>MADE IN LONDON</span></div>
+        <div class="icon-item"><img src="images/japan.png" alt="100% Japanese tea"><span>100% JAPANESE TEA</span></div>
       </div>
     </div>
   </section>
 
+  <!-- RANGE -->
   <section class="range">
     <div class="container">
       <h2>Our range</h2>
@@ -250,41 +129,202 @@
         <div class="range-item">
           <h3>OAT MATCHA LATTE</h3>
           <p>Stone-ground Japanese matcha with an earthy, creamy finish.</p>
+          <img src="images/MATCHA.jpg" alt="Oat Matcha Latte">
         </div>
         <div class="range-item">
           <h3>OAT HOJICHA LATTE</h3>
           <p>Roasted Japanese green tea with nutty, toasty notes.</p>
+          <img src="images/HOJI.jpg" alt="Oat Hojicha Latte">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="find-us">
+  <!-- STOCKISTS ACCORDION -->
+  <section class="stockists" id="stockists">
     <div class="container">
-      <h2>Find us</h2>
-      <p>Coming soon! Check out our instagram for the latest updates</p>
+      <h2>Stockists</h2>
+      <div class="accordion">
+
+        <!-- WEST LONDON -->
+        <button>West London</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>Simply Oriental — Queensway</h4>
+              <p>28 Queensway, London W2 3RX</p>
+              <a href="https://maps.google.com/?q=W2+3RX" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>S Mart — Queensway</h4>
+              <p>28 Queensway, London W2 3RX</p>
+              <a href="https://maps.google.com/?q=W2+3RX" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>YOHOME — Hammersmith</h4>
+              <p>77 Fulham Palace Rd, London W6 8JA</p>
+              <a href="https://maps.google.com/?q=W6+8JA" target="_blank">View on map</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- NORTH LONDON -->
+        <button>North London</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>YOHOME — Holloway Rd</h4>
+              <p>293 Holloway Road, London N7 8HS</p>
+              <a href="https://maps.google.com/?q=N7+8HS" target="_blank">View on map</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- EAST LONDON -->
+        <button>East London</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>Shop & Go — Old Street</h4>
+              <p>99 East Road, London N1 6AQ</p>
+              <a href="https://maps.google.com/?q=N1+6AQ" target="_blank">View on map</a>
+            </div>
+<div class="stockist-card">
+              <h4>Doufu — Stratford</h4>
+              <p>1, Hyett Terrace, Honour Lea Ave E20 1HH</p>
+              <a href="https://maps.google.com/?q=E20+1HH" target="_blank">View on map</a>
+            </div>
+<div class="stockist-card">
+              <h4>WaNaHong — Stratford</h4>
+              <p>15-19 Penny Brookes St, London E20 1BN</p>
+              <a href="https://maps.google.com/?q=E20+1BN" target="_blank">View on map</a>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- SOUTH LONDON -->
+        <button>South London</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>Duc Tien Cash & Carry – Charlton</h4>
+              <p>Unit 2-3 Lombard Trading Estate, London SE7 7SN</p>
+              <a href="https://maps.google.com/?q=SE7+7SN" target="_blank">View on map</a>
+            <div class="stockist-card">
+              <h4>Mini C – Greenwich</h4>
+              <p>22-24 Victoria Parade, London SE10 9FR</p>
+              <a href="https://maps.google.com/?q=SE10+9FR" target="_blank">View on map</a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- LONDON CITY -->
+        <button>London City</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>Yohome — Aldgate</h4>
+              <p> 61a Alie Street, London E1 8EB</p>
+              <a href="https://maps.google.com/?q=E1+8EB" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Doufu Mart — St Pauls</h4>
+              <p> 3 Paul St, London EC2A 4JJ </p>
+              <a href="https://maps.google.com/?q=EC2A+4JJ" target="_blank">View on map</a>
+            </div>
+<div class="stockist-card">
+              <h4>SeeWoo — Chinatown</h4>
+              <p>18-21 Lisle St, London WC2H 7BA</p>
+              <a href="https://maps.google.com/?q= WC2H 7BA " target="_blank">View on map</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- OUTSIDE LONDON -->
+        <button>Outside London</button>
+        <div class="panel">
+          <div class="stockist-grid">
+            <div class="stockist-card">
+              <h4>Chan’s — Glasgow</h4>
+              <p>37-39 Farnell Street, Glasgow G4 9SE</p>
+              <a href="https://maps.google.com/?q=G4+9SE" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Cheerful Links — Stoke-on-Trent</h4>
+              <p>Victoria Road, Stoke-on-Trent ST4 2HS</p>
+              <a href="https://maps.google.com/?q=ST4+2HS" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Konbini — Patchway, Bristol</h4>
+              <p>Charlton Boulevard, Patchway BS34 5BN</p>
+              <a href="https://maps.google.com/?q=BS34+5BN" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Konbini — Emersons Green, Bristol</h4>
+              <p>Emersons Green Retail Park BS16 7AE</p>
+              <a href="https://maps.google.com/?q=BS16+7AE" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Oriental Mart — Nottingham City Centre</h4>
+              <p>1A Goldsmith Street, Nottingham NG1 5ED</p>
+              <a href="https://maps.google.com/?q=NG1+5ED" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Oriental Mart — Beeston Nottingham</h4>
+              <p>75 High Road, Beeston NG9 2LE</p>
+              <a href="https://maps.google.com/?q=NG9+2LE" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Yip Shing — Gloucester</h4>
+              <p>Unit 6A-6B Morelands Trade Estate, Gloucester GL1 5RZ</p>
+              <a href="https://maps.google.com/?q=GL1+5RZ" target="_blank">View on map</a>
+            </div>
+            <div class="stockist-card">
+              <h4>Taste The Orient — Birmingham</h4>
+              <p>63 Pershore Street, Birmingham B5 4RW</p>
+              <a href="https://maps.google.com/?q=B5+4RW" target="_blank">View on map</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
+  <!-- SHOP ONLINE -->
+  <section class="shop-online">
+    <div class="container">
+      <h2>Shop Online</h2>
+      <div class="online-grid">
+        <a href="https://www.waso.tokyo/deliveries?text=mycha&button=" target="_blank" class="online-card">
+          <img src="images/WASOlogo.svg" alt="WASO logo">
+        </a>
+        <a href="https://www.orientalmart.co.uk/search?mycha=&q=mycha" target="_blank" class="online-card">
+          <img src="images/Orientalmartlogo.svg" alt="Oriental Mart logo">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
   <section class="news">
-    <div class="news-container">
-      <div>
-        <img src="images/LNYfair.png" alt="Urban Garden Fair">
-      </div>
-      <div class="news-text">
-        <h2>Coming up</h2>
-        <p><strong>Urban Garden Fair</strong></p>
-        <p>February 7 to 8<br>Woolrich, London<br>Ajinomoto × Starry Mart stand<br>More details coming soon.</p>
-      </div>
+    <div class="container">
+      <h2>Events</h2>
+      <p>Coming soon!</p>
     </div>
   </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-container">
     <div class="footer-left">
-      © 2026 mycha<br>
+      © 2026 MYCHA<br>
       For partnerships, events and enquiries, contact: <a href="mailto:hello@mycha.co.uk">hello@mycha.co.uk</a>
     </div>
     <div class="footer-right">
@@ -294,27 +334,21 @@
 </footer>
 
 <script>
-  window.addEventListener('scroll', () => {
-    document.body.classList.toggle('scrolled', window.scrollY > 40);
-
-    const img = document.querySelector('.image-text-section img');
-    if (img) {
-      const offset = Math.min(40, Math.max(-40, img.getBoundingClientRect().top * 0.08));
-      img.style.transform = `translateY(${offset}px)`;
-    }
-
-    const icons = document.getElementById('icon-row');
-    if (icons) {
-      const rect = icons.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.85) {
-        icons.classList.add('visible');
-      }
-    }
+// Accordion functionality
+var acc = document.getElementsByClassName("accordion")[0].getElementsByTagName("button");
+for (let i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) { panel.style.maxHeight = null; } 
+    else { panel.style.maxHeight = panel.scrollHeight + "px"; } 
   });
+}
 </script>
 
 </body>
 </html>
+
 
 
 
